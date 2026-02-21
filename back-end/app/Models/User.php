@@ -18,10 +18,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'role',
         'email',
+        'phone',
         'password',
+        'profile',
+        'bio'
     ];
+
+    public function otps() {
+        return $this->hasMany(Otp::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.
